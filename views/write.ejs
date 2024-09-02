@@ -1,0 +1,41 @@
+<%- include("partials/header.ejs") %>
+    <hr>
+
+<h1>Add a Quote</h1>
+<form class = "form-outer" method="post" <% if(locals.post){  %> action = <%= "/edit/" + post.id %> <% } else{ %> action="/" <% } %> >
+    
+    <div class = "form">
+        <div>
+            <label for="author" >username</label>
+            <input type="text" name="author" placeholder="author" <% if(locals.post){ %> value = <%= post.author %> <% } %>  required >
+        </div>
+        
+        <div>
+            <label for="title" >Title</label>
+            <input type="text" name="title" placeholder="title"  <% if(locals.post){ %> value = <%= post.title %> <% } %>  required >  
+        </div>
+        
+        <div>
+            <label for="content">Content</label>
+            <textarea name="content" id="content" cols="100%" rows="10px"> <% if(locals.post){ %> <%= post.content %> <% } %>   </textarea>
+            
+        </div>
+       
+        <input type="submit" name="Submit" value = "Submit" class = "btn-main">
+    </div>
+    <div class = "image">
+        <label for="image" >Select a background image</label>
+        <input type="file" name="image" accept="image/*">
+    </div>
+   
+    
+     <!-- 
+        <label for="image"></label>
+        <input type="text" name="" placeholder="">
+    -->
+</form>
+
+<h2 class = "noto-serif">No idea what to write? We got you! 😉</h2>
+<p>You can generate randomly </p>
+
+<%- include("partials/footer.ejs") %>
